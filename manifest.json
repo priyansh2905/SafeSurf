@@ -1,0 +1,37 @@
+{
+  "manifest_version": 3,
+  "name": "SafeSurf",
+  "description": "Filter hateful comments on YouTube and other platforms.",
+  "version": "1.1",
+  "permissions": [
+    "storage", 
+    "tabs", 
+    "activeTab", 
+    "scripting"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+          "*://*.youtube.com/*",
+          "*://*.facebook.com/*",
+          "*://*.twitter.com/*",
+          "*://*.instagram.com/*",
+          "*://*.reddit.com/*"
+      ],
+      
+      "js": ["content.js"]
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "img1.png"
+    }
+  },
+  "icons": {
+    "16": "img1.png"
+  }
+}
